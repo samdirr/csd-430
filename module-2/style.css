@@ -1,0 +1,114 @@
+/* Samuel Dirr | CSD 430 | Module 2 Assignment 2 | November 1, 2026
+   External stylesheet for the Red Rising character guide.
+   Red and warm neutral colors reflect the novel while preserving readability. */
+
+:root {
+    color-scheme: light;
+    --paper: #f8f5ef;
+    --ink: #252325;
+    --muted: #605a55;
+    --red: #8c292c;
+    --deep-red: #2c1519;
+    --line: #d8cfc5;
+}
+
+* { box-sizing: border-box; }
+body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+}
+.container { width: min(1100px, calc(100% - 64px)); margin-inline: auto; }
+a { color: var(--red); text-underline-offset: 4px; }
+a:hover { text-decoration-thickness: 2px; }
+a:focus-visible, button:focus-visible, select:focus-visible, .table-scroll:focus-visible {
+    outline: 3px solid var(--red);
+    outline-offset: 4px;
+}
+.skip-link { position: absolute; top: -100px; left: 16px; padding: 10px 16px; background: white; z-index: 2; }
+.skip-link:focus { top: 10px; }
+
+/* The large book title and thin red rule establish the page hierarchy. */
+.masthead { color: #fff7ed; background: var(--deep-red); border-top: 7px solid #b54b45; }
+.hero { padding-block: 42px 38px; }
+.eyebrow, .section-label {
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+.eyebrow { margin: 0 0 16px; color: #e5b8aa; }
+h1, h2 { font-family: Georgia, 'Times New Roman', serif; font-weight: normal; line-height: 1.12; }
+h1 { margin: 0; font-size: clamp(48px, 7vw, 76px); letter-spacing: -0.045em; }
+h1 span { display: block; margin-top: 8px; font-size: 25px; letter-spacing: 0; color: #e5b8aa; }
+.byline { margin: 22px 0 12px; font-size: 14px; color: #e8d9cb; }
+.introduction { max-width: 700px; margin: 0; font-size: 18px; color: #f1e9e2; }
+h2 { margin: 0 0 16px; font-size: 30px; letter-spacing: -0.02em; }
+.section-label { color: var(--red); margin: 0 0 12px; }
+.overview { padding-block: 32px 24px; max-width: 880px; }
+.overview p:not(.section-label) { margin: 0 0 10px; }
+.note { font-size: 13px; color: var(--muted); }
+
+/* Category headings and alternating rows keep the three-field table scannable. */
+.directory { border-top: 1px solid var(--line); padding-block: 28px 32px; }
+.section-heading { display: flex; align-items: end; justify-content: space-between; gap: 20px; }
+.section-heading h2 { margin-bottom: 0; }
+.record-count { color: var(--muted); margin: 0 0 2px; white-space: nowrap; font-size: 14px; }
+.filter { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; padding-block: 22px; }
+.filter label { font-size: 14px; font-weight: bold; }
+select, button { border-radius: 3px; font: inherit; padding: 8px 12px; min-height: 44px; }
+select { max-width: 100%; color: var(--ink); background: white; border: 1px solid #90857c; }
+button { color: white; background: var(--red); border: 1px solid var(--red); cursor: pointer; }
+button:hover { background: #6c1c22; }
+.filter a { font-size: 14px; }
+.table-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 3px; }
+table { width: 100%; border-collapse: collapse; background: #fffdf9; text-align: left; }
+caption { text-align: left; padding: 12px 18px; color: var(--muted); font-size: 13px; background: #f2ece3; }
+th, td { padding: 15px 18px; vertical-align: top; border-bottom: 1px solid var(--line); }
+thead { color: white; background: #343031; font-size: 13px; }
+thead th:nth-child(1) { width: 26%; }
+thead th:nth-child(2) { width: 24%; }
+thead th:nth-child(3) { width: 50%; }
+.category-row th { padding-block: 9px; color: #68252b; background: #eee3d8; font-size: 13px; letter-spacing: 0.03em; }
+.character-row th { font-family: Georgia, 'Times New Roman', serif; font-size: 18px; font-weight: normal; }
+.character-row td { font-size: 14px; }
+.character-row:nth-child(odd) { background: #faf6ef; }
+tbody:last-child tr:last-child > * { border-bottom: 0; }
+.error { border-left: 4px solid var(--red); padding: 16px; background: #f4e3df; }
+
+/* Field definitions document the displayed records without crowding the table. */
+.field-guide { padding-block: 28px; border-top: 1px solid var(--line); }
+dl { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin: 20px 0; }
+dt { font-weight: bold; font-size: 14px; }
+dd { margin: 6px 0 0; color: var(--muted); font-size: 14px; }
+.sources { font-size: 12px; color: var(--muted); margin: 24px 0 0; }
+.footer { display: flex; justify-content: space-between; gap: 20px; border-top: 1px solid var(--line); padding-block: 20px 30px; }
+.footer p { font-size: 12px; color: var(--muted); margin: 0; }
+
+/* Small screens retain a real table, with horizontal scrolling only as needed. */
+@media (max-width: 640px) {
+    .container { width: calc(100% - 32px); }
+    .hero { padding-block: 32px; }
+    h1 span { font-size: 22px; }
+    h2 { font-size: 27px; }
+    .section-heading, .footer { display: block; }
+    .record-count { margin-top: 12px; }
+    .filter label { width: 100%; }
+    table { min-width: 600px; }
+    dl { grid-template-columns: 1fr; gap: 18px; }
+    .footer p + p { margin-top: 8px; }
+}
+
+@media print {
+    body { background: white; color: black; }
+    .container { width: 100%; }
+    .masthead { background: white; color: black; border-color: black; }
+    .eyebrow, .byline, .introduction, h1 span { color: black; }
+    .filter, .skip-link { display: none; }
+    .table-scroll { overflow: visible; }
+    table { min-width: 0; }
+    tr { break-inside: avoid; }
+}
