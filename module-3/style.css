@@ -1,0 +1,57 @@
+/*
+    Samuel Dirr | November 8, 2026 | CSD 430 Assignment 3.2
+    AI assistance: OpenAI Codex generated this code and assisted with testing.
+    Reference: Bellevue University, M3_Code_Examples, Form_01.jsp and Form_04.jsp.
+    Purpose: Provide shared responsive styling for the feedback form and JSP results.
+*/
+/* Base typography and the shared page shell. */
+* { box-sizing: border-box; }
+body { margin: 0; color: #223b32; background: #f5f2eb; font: 16px/1.6 system-ui, sans-serif; }
+.container { width: min(960px, calc(100% - 40px)); margin: 0 auto; }
+header { padding: 42px 0 22px; max-width: 750px; }
+.eyebrow { color: #52674d; text-transform: uppercase; letter-spacing: .16em; font-size: 12px; font-weight: 750; }
+h1 { margin: 10px 0; font: 52px/1.12 Georgia, serif; letter-spacing: -.03em; }
+h2 { margin: 0 0 10px; font: 26px/1.25 Georgia, serif; }
+p { margin: 10px 0 16px; }
+.panel { background: #fff; border: 1px solid #d9ded4; border-radius: 12px; padding: 30px; }
+.muted, small { color: #526158; }
+small { display: block; font-size: 13px; margin-top: 5px; }
+/* Form controls stay labeled and usable with keyboard navigation. */
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.field { margin-bottom: 20px; }
+label, legend { font-weight: 650; }
+input:not([type="radio"]), select, textarea { width: 100%; margin-top: 7px; padding: 11px 12px; border: 1px solid #8a9a8d; border-radius: 5px; background: #fff; color: #223b32; font: inherit; }
+textarea { resize: vertical; min-height: 112px; }
+fieldset { border: 0; padding: 0; margin: 0 0 22px; min-width: 0; }
+legend { padding: 0; margin-bottom: 8px; }
+.ratings { display: flex; flex-wrap: wrap; gap: 9px 18px; }
+.ratings label { display: flex; gap: 6px; align-items: center; font-size: 14px; font-weight: 500; min-height: 36px; }
+input[type="radio"] { width: 18px; height: 18px; accent-color: #294e3b; }
+button, .button-link { display: inline-block; background: #294e3b; color: #fff; border: 0; padding: 12px 22px; border-radius: 5px; font: 650 15px/1.5 system-ui, sans-serif; text-decoration: none; cursor: pointer; }
+button:hover, .button-link:hover { background: #183728; }
+:focus-visible { outline: 3px solid #b66b1d; outline-offset: 3px; }
+/* Table fields explain both the record and each submitted response. */
+.table-wrap { overflow-x: auto; margin: 20px 0; }
+table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+caption { text-align: left; font-weight: 700; margin-bottom: 10px; }
+th, td { text-align: left; vertical-align: top; padding: 14px 12px; border: 1px solid #d9ded4; overflow-wrap: anywhere; }
+thead { background: #edf1e9; }
+th:first-child { width: 22%; }
+.response { white-space: pre-wrap; }
+.errors { color: #8b2d20; }
+footer { padding: 22px 0; color: #526158; font-size: 13px; }
+/* Stack controls on smaller screens without hiding any input or table content. */
+@media (max-width: 600px) {
+    .container { width: calc(100% - 24px); }
+    header { padding-top: 25px; }
+    h1 { font-size: 38px; }
+    .panel { padding: 20px 16px; }
+    .grid { grid-template-columns: 1fr; gap: 0; }
+    th, td { padding: 9px 6px; font-size: 13px; }
+}
+@media print {
+    body { background: white; }
+    .container { width: 100%; }
+    .panel { border: 0; padding: 0; }
+    .button-link, button { display: none; }
+}

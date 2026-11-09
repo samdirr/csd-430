@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!--
+    Samuel Dirr | November 8, 2026 | CSD 430 Assignment 3.2
+    AI assistance: OpenAI Codex generated this code and assisted with testing.
+    Reference: Bellevue University, M3_Code_Examples, Form_01.jsp and Form_04.jsp.
+    Purpose: Collect five restaurant feedback fields and POST them to a separate JSP.
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Restaurant Feedback | Table & Thyme</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="container">
+        <header>
+            <p class="eyebrow">Table &amp; Thyme / Guest feedback</p>
+            <h1>How was your visit?</h1>
+            <p>Tell us about your meal and service. Each response describes one restaurant visit.</p>
+        </header>
+        <section class="panel" aria-labelledby="form-title">
+            <h2 id="form-title">A few details about your experience</h2>
+            <p class="muted">All five fields are required. This classroom demo displays your feedback without saving it.</p>
+            <!-- Names match the request parameters read by feedback-result.jsp. -->
+            <form method="post" action="feedback-result.jsp" accept-charset="UTF-8">
+                <div class="grid">
+                    <div class="field">
+                        <label for="customerName">Your name</label>
+                        <input id="customerName" name="customerName" type="text" maxlength="80" autocomplete="name" required>
+                    </div>
+                    <div class="field">
+                        <label for="visitDate">Date of visit</label>
+                        <input id="visitDate" name="visitDate" type="date" required aria-describedby="date-help">
+                        <small id="date-help">Choose today or an earlier date.</small>
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="meal">Meal ordered</label>
+                    <select id="meal" name="meal" required>
+                        <option value="">Select your meal</option>
+                        <option value="Herb roasted chicken">Herb roasted chicken</option>
+                        <option value="Garden pasta">Garden pasta</option>
+                        <option value="Grilled salmon">Grilled salmon</option>
+                        <option value="House burger">House burger</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <!-- A fieldset groups the radio buttons as one data entry point. -->
+                <fieldset>
+                    <legend>Service rating</legend>
+                    <div class="ratings">
+                        <label><input type="radio" name="serviceRating" value="1" required> 1 · Poor</label>
+                        <label><input type="radio" name="serviceRating" value="2"> 2 · Fair</label>
+                        <label><input type="radio" name="serviceRating" value="3"> 3 · Good</label>
+                        <label><input type="radio" name="serviceRating" value="4"> 4 · Very good</label>
+                        <label><input type="radio" name="serviceRating" value="5"> 5 · Excellent</label>
+                    </div>
+                </fieldset>
+                <div class="field">
+                    <label for="comments">Tell us more</label>
+                    <textarea id="comments" name="comments" rows="4" maxlength="1000" required aria-describedby="comments-help"></textarea>
+                    <small id="comments-help">Describe your meal or service in up to 1,000 characters. Please omit sensitive information.</small>
+                </div>
+                <button type="submit">Review my feedback <span aria-hidden="true">→</span></button>
+            </form>
+        </section>
+        <footer>Samuel Dirr · CSD 430 · Assignment 3.2</footer>
+    </main>
+</body>
+</html>
